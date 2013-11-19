@@ -420,7 +420,7 @@ class Odometer
 
     digitCount = @getDigitCount(oldValue, newValue)
     oldDigitCount = @getDigitCount(oldValue)
-    oldDigitCount = @getDigitCount(newValue)
+    newDigitCount = @getDigitCount(newValue)
 
     digits = []
     boosted = 0
