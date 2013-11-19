@@ -476,7 +476,7 @@
     };
 
     Odometer.prototype.animateSlide = function(newValue) {
-      var boosted, cur, diff, digitCount, digits, dist, end, fractionalCount, frame, frames, i, incr, j, mark, numEl, oldValue, start, _base, _i, _j, _k, _l, _len, _len1, _len2, _m, _ref, _results;
+      var boosted, cur, diff, digitCount, digits, dist, end, fractionalCount, frame, frames, i, incr, j, mark, numEl, oldDigitCount, oldValue, start, _base, _i, _j, _k, _l, _len, _len1, _len2, _m, _ref, _results;
       oldValue = this.value;
       fractionalCount = this.getFractionalDigitCount(oldValue, newValue);
       if (fractionalCount) {
@@ -488,6 +488,8 @@
       }
       this.bindTransitionEnd();
       digitCount = this.getDigitCount(oldValue, newValue);
+      oldDigitCount = this.getDigitCount(oldValue);
+      oldDigitCount = this.getDigitCount(newValue);
       digits = [];
       boosted = 0;
       for (i = _i = 0; 0 <= digitCount ? _i < digitCount : _i > digitCount; i = 0 <= digitCount ? ++_i : --_i) {
@@ -544,6 +546,9 @@
           }
           if (j === 0) {
             addClass(numEl, 'odometer-first-value');
+            if ((diff > 0 && i >= oldDigitCount) || (diff < 0 && i >= newDigitCount)) {
+              addClass(numEl, 'odometer-digit-spacer');
+            }
           }
         }
       }

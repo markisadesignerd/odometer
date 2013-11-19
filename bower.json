@@ -5,7 +5,8 @@
   "homepage": "http://github.hubspot.com/odometer/docs/welcome",
   "authors": [
     "Zack Bloom <zbloom@hubspot.com>",
-    "Adam Schwartz <aschwartz@hubspot.com>"
+    "Adam Schwartz <aschwartz@hubspot.com>",
+    "Mark Potnick <mark.potnick@gmail.com>"
   ],
   "description": "Transition numbers with ease",
   "keywords": [

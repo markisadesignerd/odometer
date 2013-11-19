@@ -419,6 +419,8 @@ class Odometer
     @bindTransitionEnd()
 
     digitCount = @getDigitCount(oldValue, newValue)
+    oldDigitCount = @getDigitCount(oldValue)
+    oldDigitCount = @getDigitCount(newValue)
 
     digits = []
     boosted = 0
@@ -478,6 +480,8 @@ class Odometer
           addClass numEl, 'odometer-last-value'
         if j == 0
           addClass numEl, 'odometer-first-value'
+          if ( diff > 0 and i >= oldDigitCount ) or ( diff < 0 and i >= newDigitCount )
+            addClass numEl, 'odometer-digit-spacer'
 
     mark = @inside.querySelector('.odometer-radix-mark')
     mark.parent.removeChild(mark) if mark?
